@@ -1,0 +1,31 @@
+<div class="container" style="padding: 30px;">
+    <mat-card>
+        <mat-card-content>
+            <table mat-table [dataSource]="coupons" class="mat-elevation-z8">
+                
+                <ng-container matColumnDef="id">
+                    <th mat-header-cell *matHeaderCellDef>Coupon ID: </th>
+                    <td mat-cell *matCelldef="let coupon">{{ coupon.id }}</td>
+                </ng-container>
+                
+                <ng-container matColumnDef="name">
+                    <th mat-header-cell *matHeaderCellDef>Name </th>
+                    <td mat-cell *matCelldef="let coupon">{{ coupon.name }}</td>
+                </ng-container>
+                
+                <ng-container matColumnDef="discount">
+                    <th mat-header-cell *matHeaderCellDef>Name </th>
+                    <td mat-cell *matCelldef="let coupon">{{ coupon.discount }}(%)</td>
+                </ng-container>
+                
+                <ng-container matColumnDef="expiration">
+                    <th mat-header-cell *matHeaderCellDef>Expiration Date </th>
+                    <td mat-cell *matCelldef="let coupon" class="bold-cell">{{ coupon.expiration | date: 'dd/MM/yyyy' }}</td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns" ></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+            </table>
+        </mat-card-content>
+    </mat-card>
+</div>
